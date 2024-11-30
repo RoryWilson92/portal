@@ -3,6 +3,8 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
+import 'package:portal/env/env.dart';
+
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
 /// Example:
@@ -48,16 +50,16 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCGFCj0jiFeKhN7wtyoYmQjDwN97aGM2Iw',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: Env.firebaseAndroidKey,
     appId: '1:571143723733:android:b6dad42c6609e3eccba05c',
     messagingSenderId: '571143723733',
     projectId: 'morelife-3d926',
     storageBucket: 'morelife-3d926.appspot.com',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDWVF0IBmolVKJ8pqTzKzMVe6iwdmUGnQ4',
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: Env.firebaseIosKey,
     appId: '1:571143723733:ios:3f399fd951027640cba05c',
     messagingSenderId: '571143723733',
     projectId: 'morelife-3d926',
