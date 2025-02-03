@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../main.dart';
-import '/util/types.dart';
-import '/portal/edit_post_page.dart';
-import '/portal/user_post.dart';
+import 'package:portal/main.dart';
+import 'package:portal/model/types/post.dart';
+import 'package:portal/view/portal/edit_post_page.dart';
+import 'package:portal/view/portal/user_post.dart';
 
 class PortalPage extends StatefulWidget {
   const PortalPage({

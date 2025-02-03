@@ -1,12 +1,19 @@
 import 'dart:io';
 
-import 'package:portal/util/types.dart';
+import 'package:portal/theme/app_theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../main.dart';
+import 'package:portal/main.dart';
+import 'package:provider/provider.dart';
+
+import 'dart:developer' as dev;
+
+import 'package:portal/model/user_model.dart';
+
+import 'package:portal/model/types/post.dart';
 
 class EditPostPage extends StatefulWidget {
 
@@ -42,7 +49,7 @@ class _EditPostPageState extends State<EditPostPage> {
                 setState(() {
                   posting = true;
                 });
-                sendPost();
+                sendPost(context);
               },
               child: const Text("Post"),
             ),
@@ -65,8 +72,8 @@ class _EditPostPageState extends State<EditPostPage> {
                   child: Visibility(
                     visible: posting,
                     child: CircularProgressIndicator(
-                      backgroundColor: ThemeColors.textOnAccent,
-                      color: ThemeColors.accent,
+                      backgroundColor: AppTheme.textOnAccent,
+                      color: AppTheme.accent,
                       value: progress,
                     ),
                   ),
@@ -97,13 +104,14 @@ class _EditPostPageState extends State<EditPostPage> {
     );
   }
 
-  void sendPost() {
+  void sendPost(BuildContext context) {
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
+    final currentUser = context.read<UserModel>().currentUser;
     storage
         .child("posts")
         .child(today.toString())
-        .child("${getCurrentUser()!.id}.jpg")
+        .child("${currentUser!.id}.jpg")
         .putFile(File(widget.image.path))
         .snapshotEvents
         .listen((taskSnapshot) async {
@@ -116,20 +124,20 @@ class _EditPostPageState extends State<EditPostPage> {
         case TaskState.paused:
           break;
         case TaskState.success:
-          print("Post upload success");
-          final downloadURL = await storage.child("posts").child(today.toString()).child("${getCurrentUser()!.id}.jpg").getDownloadURL();
-          final post = Post(user: getCurrentUser()!, downloadURL: downloadURL, caption: _caption, comments: [], reactions: [], tagged: _tagged);
+          dev.log("Post upload success");
+          final downloadURL = await storage.child("posts").child(today.toString()).child("${currentUser.id}.jpg").getDownloadURL();
+          final post = Post(user: currentUser, downloadURL: downloadURL, caption: _caption, comments: [], reactions: [], tagged: _tagged);
           db.collection("posts").doc(today.toString()).collection("posts").add(post.toEntry());
           if (!mounted) return;
           Navigator.pop(context, true);
           break;
         case TaskState.canceled:
-          print("Post upload cancelled");
+          dev.log("Post upload cancelled");
           if (!mounted) return;
           Navigator.pop(context, false);
           break;
         case TaskState.error:
-          print("Post upload error");
+          dev.log("Post upload error");
           if (!mounted) return;
           Navigator.pop(context, false);
           break;

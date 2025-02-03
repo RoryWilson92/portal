@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "571143723733",
+    "project_id": "morelife-3d926",
+    "storage_bucket": "morelife-3d926.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571143723733:android:b6dad42c6609e3eccba05c",
+        "android_client_info": {
+          "package_name": "com.rorywilson.more_life"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571143723733-5vfqs3r4mlqg7q486am84jfhf570834f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rorywilson.more_life",
+            "certificate_hash": "7312b11d37d937a70967437423861c705b855f51"
+          }
+        },
+        {
+          "client_id": "571143723733-0mt4dk3pg0rkgmlr8jildqe0h5iatrjo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTw9ggpUlSS2VHGbVbUjDekBWIHaKcRIk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571143723733-0mt4dk3pg0rkgmlr8jildqe0h5iatrjo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "571143723733-s6a3mma165cj6grv2c5o3q7e3clt712o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rorywilson.moreLife"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571143723733:android:acb0875e0dfc5e8bcba05c",
+        "android_client_info": {
+          "package_name": "com.rorywilson.portal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571143723733-gcoera42ku5dqvo3nuuvmq6j1iigv8je.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rorywilson.portal",
+            "certificate_hash": "e5bf2eebd0286148ce2e949e8e22f474ec1c9460"
+          }
+        },
+        {
+          "client_id": "571143723733-0mt4dk3pg0rkgmlr8jildqe0h5iatrjo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTw9ggpUlSS2VHGbVbUjDekBWIHaKcRIk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571143723733-0mt4dk3pg0rkgmlr8jildqe0h5iatrjo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "571143723733-s6a3mma165cj6grv2c5o3q7e3clt712o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rorywilson.moreLife"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
